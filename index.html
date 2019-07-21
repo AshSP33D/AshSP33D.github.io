@@ -1,6 +1,5 @@
 <!doctype html>
 <style>
-	
 	body {
 		padding-top: 25px;
 		text-align: center;
@@ -38,7 +37,7 @@
 		color: white;
 	}
 
-	.visible {;
+	.visible {
 		transition-duration: 0.4s;
 		transform-origin: 0% 0%;
 		transform: scaleY(1);
@@ -49,6 +48,7 @@
 	}
 
 	.subButton {
+		width: 200px;
 		background-color: white;
 		color: #333;
 	}
@@ -65,19 +65,25 @@
 		font-size: 1vw;
 		margin-right: 50px;
 	}
+
+	.codeDisplay {
+		width: 500px;		/*I only use code displays if there isn't anything suitable to put in place of a visual display/small demo */
+	}
 }
 
 </style>
 <html>
-	<head>
+	<head>			<!--In the source code, there is a <head> tag here, however it seems to move to the very start of the document in the code viewer for the website for some reason.-->
 		<title>Ash's Portfolio</title>
 	</head>
 	<body>
 		<h1 align=center>ASH'S PORTFOLIO</h1>
-		<table style="padding-top: 50px; width: 100%">
+		<table style="padding-top: 25px; width: 100%">
 			<tr>
 				<th><button onclick="resetDivs();document.getElementById('drumSequences').className = 'visible';">Random Drum Sequences</button></th>
 				<th><button onclick="resetDivs();document.getElementById('wordPress').className = 'visible';">Fully Custom HTML & CSS in Wordpress</button></th>
+				<th><button onclick="resetDivs();document.getElementById('robots').className = 'visible';">C# Robot AI (Work Experience)</button></th>
+				<th><button onclick="resetDivs();document.getElementById('portfolio').className = 'visible';">Portfolio from scratch (HTML, CSS, JS)</button></th>
 			</tr>
 		</table>
 		<p></p>
@@ -85,14 +91,14 @@
 		<div id="drumSequences" class="invisible">
 				<table>
 					<tr>
-						<th><button onclick="window.location.href = 'randomLinear.html'" class = "subButton">Random Linear Drum Sequences</button></th>
+						<th><button onclick="window.location.href = 'drumSequences/randomLinear.html'" class = "subButton">Random Linear Drum Sequences</button></th>
 						<th>This project was tasked to me by my drum teacher. While initially developing it in Python, and writing a HTML file, I decided to switch over to constructing the page from within the browser using JavaScript for user convenience. It makes use of a custom font, results in 10, 16-beat bars and can be printed.</th>
-						<th><iframe src="randomLinear.html" frameBorder="0" scrolling="no"></iframe></th>
+						<th><iframe src="drumSequences/randomLinear.html" frameBorder="0"></iframe></th>
 					</tr>
 					<tr>
-						<th><button onclick="window.location.href = 'randomBasic.html'" class = "subButton">Random Basic Drum Sequences</button></th>
+						<th><button onclick="window.location.href = 'drumSequences/randomBasic.html'" class = "subButton">Random Basic Drum Sequences</button></th>
 						<th>Being developed off the other drum sequences project, I simply removed some pieces of code I felt weren't needed any more (as I was creating my own sequences to go into the array) and replaced the sequences to replace with the Basic Rock variety. I decided to reduce the amount of checking the code had to do and the system I used for the arrays. In depth explanations can be found within the HTML files themselves.</th>
-						<th><iframe src="randomBasic.html" frameborder="0" scrolling="no"></iframe></th>
+						<th><iframe src="drumSequences/randomBasic.html" frameborder="0"></iframe></th>
 					</tr>
 				</table>
 		</div>
@@ -100,9 +106,32 @@
 		<div id="wordPress" class="invisible" style="height: 200px">
 				<table>
 					<tr>
-						<th><button onclick="window.open('http://upperhandgaming.eu/colourchange')" class = "subButton" style="width:200px">Go to Site</button></th>
-						<th>I undertook this project myself with the sole intention of being able to host some of my small experiments (regardless of whether to get them to work in this context it is close to impossible) on a Wordpress site. I quickly learned that you can only run JS, which is required, on premium Wordpress servers, which meant that I had to build the page on the only premium server I have access to. I felt it was a nice challenge, and could be used for other purposes by other people (for example for hosting a portfolio without having to purchase multiple different addresses). Of course, GitHub is still a better place to do the same function.</th>
-						<th><iframe src="http://upperhandgaming.eu/colourchange" frameBorder="0" scrolling="yes"></iframe></th>
+						<th><button onclick="window.location.href = 'http://upperhandgaming.eu/colourchange'" class = "subButton">Go to Site</button></th>
+						<th>I undertook this project myself with the sole intention of being able to host some of my small experiments on a Wordpress site (which I decided against once it became clear that the process was extremely inefficient. I quickly learned that you can only run JS, which is required, on premium Wordpress servers, which meant that I had to build the page on the only premium server I have access to. I felt it was a nice challenge, and could be used for other purposes by other people (for example for hosting a portfolio without having to purchase multiple different addresses). Of course, GitHub is still a better place to do the same function.</th>
+						<th><iframe src="http://upperhandgaming.eu/colourchange" frameBorder="0"></iframe></th>
+					</tr>
+				</table>
+		</div>
+
+		<div id="robots" class="invisible">
+				<table>
+					<tr>
+						<th>During work experience I was tasked with using C# to program robot AI that would participate within a fight. I learned the approaches that each in the development team took throughout the week and eventually applied the knowledge into the creation of a couple of robots at the end of the week. There was no documentation for the robots, so all understanding of the system was required to stem from the code itself. This is one robot that eliminates all other robots using an exploit found and pointed out to me by one of the developers in the code as well as integer underflows to set their scores to zero without being penalised.</th>
+						<th><iframe src="robots/AshBot.cs" frameBorder="0" class="codeDisplay"></iframe></th>
+					</tr>
+					<tr>
+						<th>This is another bot I developed similarly but with more complex AI. Despite being more complex than any of the other robots it was put up against (excluding my other bot) it repeatedly came out in fourth and fifth places. It mimics the behaviour of other example robots according to certain variables such as where it is in the leaderboard, how much health it has left etc.</th>
+						<th><iframe src="robots/SmartRobot.cs" frameBorder="0" class="codeDisplay"></iframe></th>
+					</tr>
+				</table>
+		</div>
+
+		<div id="portfolio" class="invisible" style="height: 200px">
+				<table>
+					<tr>
+						<th><button onclick="window.location.href = 'https://github.com/AshSP33D/AshSP33D.github.io'" class = "subButton">View the repo</button></th>
+						<th>I always choose to go for the harder option as long as it's more customisable. This was one of the reasons behind why I chose to program my portfolio from scratch. I felt my knowledge in HTML, CSS and JS was enough to create a useful and acceptable website, with more customisability being allowed than template websites such as Wordpress. Most of the code I initially used to create the barebones of the website came from an earlier project I did - a web-based launcher for retro games. Eventually most of the code was rewritten to fit better to this purpose but it allowed me to focus more on expandability and further customisability if needed. As this website is somewhat in use by other people (as a result of the drum sequences), I decided to have that as the first value in the table - immediately they know that they're on the right page.</th>
+						<th><textarea readonly id="portfolioSource" style="height: 200px;resize: none;" class="codeDisplay"></textarea></th>
 					</tr>
 				</table>
 		</div>
@@ -113,5 +142,9 @@
 	function resetDivs() {
 		document.getElementById('drumSequences').className = "invisible";
 		document.getElementById('wordPress').className = "invisible";
+		document.getElementById('robots').className = "invisible";
+		document.getElementById('portfolio').className = "invisible";
 	}
+
+	document.getElementById('portfolioSource').value = document.documentElement.innerHTML;
 </script>
