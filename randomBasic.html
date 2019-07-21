@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family:drumFont;
+        src: url(drumFont.ttf);
+    }
+
+    body {
+        font-family: drumFont;
+        font-size: 120px;
+        text-align: center;
+    }
+
+    .info {
+        font-family: sans-serif;
+        font-size: 20px;
+
+</style>
+
+<html>
+    <head>
+        <title>Randomly Generated Linear Sequences</title>
+    </head>
+
+    <body>
+    	<p class="info">Refresh to randomise again!</p>
+        <div id="mainSection">
+
+        </div>
+
+        <p class="info">Randomly Generated Linear Drum Sequences
+        <br>Made by Ash (c) 2019</p>
+    </body>
+    
+</html>
+
+<script>
+    var grooves = ["becacadcac","becaecacac","bcaecacadc","beacadac","becacacadc","becacaedcac","becaecaedcaec","becadadcaec"];
+
+    function generateRandom() {
+        return Math.floor(Math.random() * (grooves.length - 1));
+    }
+
+    var noteCount = 0;
+    var randomNumber = generateRandom();
+    var finalString = "";
+
+    for (var i = 0; i < 10; i++) {
+        var failedAttempts = 0;
+        while (noteCount != 16) {
+	        noteCount += 4;
+	        finalString += grooves[randomNumber];
+	        randomNumber = generateRandom();
+        }
+
+        document.getElementById("mainSection").innerHTML += "<p>" + finalString + "b</p>";
+        console.log(noteCount);
+        noteCount = 0;
+        randomNumber = generateRandom();
+        finalString = "";
+    }
+
+</script>
