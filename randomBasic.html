@@ -36,7 +36,7 @@
 </html>
 
 <script>
-    var grooves = ["becacadcac","becaecacac","bcaecacadc","beacadac","becacacadc","becacaedcac","becadadcaec","becaecadcac","becacaecadc","becaecadcaec", "bcacaecadc"];            //This makes more sense on the page as Drum Font uses characters a-e. Here, it is simply the possible sequences.
+    var grooves = ["becacadcac","becaecacac","bcaecacadc","beacadac","becacacadc","becacaedcac","becaecadcac","becacaecadc","becaecadcaec", "bcacaecadc"];            //This makes more sense on the page as Drum Font uses characters a-e. Here, it is simply the possible sequences.
 
     function generateRandom() {
         return Math.floor(Math.random() * (grooves.length - 1));        //I use floor to round the 'index number' to something suitable for arrays. Floor in particular was used to ensure that the number it rounds to always stays within the bounds of the array.
