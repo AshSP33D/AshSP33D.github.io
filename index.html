@@ -1,12 +1,24 @@
 <!doctype html>
 <style>
 	
-button {
-	width: 200px;
-	height: 200px;
-	background-color: white;
-	border: 2px solid black;
-	font-size: 18px;
+	button {
+		background-color: #333;
+		color: white;
+		width: 200px;
+		height: 200px;
+		border: 0px solid black;
+		font-size: 20px;
+		font-weight: bold;
+		transition-duration: 0.2s;
+	}
+
+	button:hover {
+		z-index: 5;
+		font-size: 25px;
+		transform: scale(1.4);
+		box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.5);
+
+	}
 }
 
 </style>
@@ -15,11 +27,12 @@ button {
 		<title>Ash's Random Beats</title>
 	</head>
 	<body>
-		<table align=center>
+		<table align=center style="padding-top: 100px">
 			<tr>
 				<th><button onclick="window.location.href = 'randomLinear.html'">Random Linear Beats</button></th>
 				<th><button onclick="window.location.href = 'randomBasic.html'">Random Basic Beats</button></th>
 			</tr>
 		</table>
+		<div style="padding-top: 500px;text-align: center;font-weight: bold;font-family: 'Helvetica Neue',Helvetica, Arial, sans serif;'">RANDOM BEATS BY SP33D - 2019</div>
 	</body>
 </html>
