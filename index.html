@@ -2,26 +2,68 @@
 <style>
 	
 	body {
-		padding-top: 100px;text-align: center;font-weight: bold;font-family: 'Helvetica Neue',Helvetica, Arial, sans serif;
+		padding-top: 25px;
+		text-align: center;
+		font-weight: bold;
+		font-family: 'Helvetica Neue',Helvetica, Arial, sans serif;
+		color: #333;
+		margin-left: 50px;
+		margin-right: 50px;
 	}
 
 	button {
 		background-color: #333;
 		color: white;
-		width: 200px;
+		width: 100%;
 		height: 200px;
 		border: 0px solid black;
-		font-size: 16px;
+		font-size: 1.5vw;
 		font-weight: bold;
 		transition-duration: 0.2s;
+		transform-origin: left, top;
 	}
 
 	button:hover {
-		z-index: 5; 		/*Not any real reason why I chose five, but it is needed to make the buttons appear over each other */
-		font-size: 16px;
-		transform: scale(1.4);
-		box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.5);
+		opacity: 0.8;
 
+	}
+
+	.invisible {
+		transition-duration: 0.2s;
+		transform-origin: 0% 0%;
+		transform: scale(0);
+		width: auto;
+		height: 400px;
+		background-color: #333;
+		color: white;
+	}
+
+	.visible {;
+		transition-duration: 0.2s;
+		transform-origin: 0% 0%;
+		transform: scale(1);
+		width: auto;
+		height: 400px;
+		background-color: #333;
+		color: white;
+	}
+
+	.subButton {
+		background-color: white;
+		color: #333;
+	}
+
+	iframe {
+		background-color: white;
+		color: black;
+		height: 200px;
+	}
+
+	div {
+		position: absolute;
+		padding: 5px 5px 20px 5px;
+		font-size: 1vw;
+		margin-right: 50px;
 	}
 }
 
@@ -32,12 +74,44 @@
 	</head>
 	<body>
 		<h1 align=center>ASH'S PORTFOLIO</h1>
-		<table style="padding-top: 50px">
+		<table style="padding-top: 50px; width: 100%">
 			<tr>
-				<th><button onclick="window.location.href = 'randomLinear.html'">Random Linear Drum Sequences</button></th>
-				<th><button onclick="window.location.href = 'randomBasic.html'">Random Basic Drum Sequences</button></th>
-				<th><button onclick="window.location.href = 'http://upperhandgaming.eu/colourchange'">Fully Custom HTML/CSS/JS in Wordpress</button></th>
+				<th><button onclick="resetDivs();document.getElementById('drumSequences').className = 'visible';">Random Drum Sequences</button></th>
+				<th><button onclick="resetDivs();document.getElementById('wordPress').className = 'visible';">Fully Custom HTML & CSS in Wordpress</button></th>
 			</tr>
 		</table>
+		<p></p>
+			
+		<div id="drumSequences" class="invisible">
+				<table>
+					<tr>
+						<th><button onclick="window.location.href = 'randomLinear.html'" class = "subButton">Random Linear Drum Sequences</button></th>
+						<th>This project was tasked to me by my drum teacher. While initially developing it in Python, and writing a HTML file, I decided to switch over to constructing the page from within the browser using JavaScript for user convenience. It makes use of a custom font, results in 10, 16-beat bars and can be printed.</th>
+						<th><iframe src="randomLinear.html" frameBorder="0" scrolling="no"></iframe></th>
+					</tr>
+					<tr>
+						<th><button onclick="window.location.href = 'randomBasic.html'" class = "subButton">Random Basic Drum Sequences</button></th>
+						<th>Being developed off the other drum sequences project, I simply removed some pieces of code I felt weren't needed any more (as I was creating my own sequences to go into the array) and replaced the sequences to replace with the Basic Rock variety. I decided to reduce the amount of checking the code had to do and the system I used for the arrays. In depth explanations can be found within the HTML files themselves.</th>
+						<th><iframe src="randomBasic.html" frameborder="0" scrolling="no"></iframe></th>
+					</tr>
+				</table>
+		</div>
+
+		<div id="wordPress" class="invisible" style="height: 200px">
+				<table>
+					<tr>
+						<th><button onclick="window.open('http://upperhandgaming.eu/colourchange')" class = "subButton" style="width:200px">Go to Site</button></th>
+						<th>I undertook this project myself with the sole intention of being able to host some of my small experiments (regardless of whether to get them to work in this context it is close to impossible) on a Wordpress site. I quickly learned that you can only run JS, which is required, on premium Wordpress servers, which meant that I had to build the page on the only premium server I have access to. I felt it was a nice challenge, and could be used for other purposes by other people (for example for hosting a portfolio without having to purchase multiple different addresses). Of course, GitHub is still a better place to do the same function.</th>
+						<th><iframe src="http://upperhandgaming.eu/colourchange" frameBorder="0" scrolling="yes"></iframe></th>
+					</tr>
+				</table>
+		</div>
 	</body>
 </html>
+
+<script>
+	function resetDivs() {
+		document.getElementById('drumSequences').className = "invisible";
+		document.getElementById('wordPress').className = "invisible";
+	}
+</script>
