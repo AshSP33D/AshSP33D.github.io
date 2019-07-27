@@ -6,7 +6,7 @@ global cardData
 global lastPlayed
 
 colours = ["Red", "Yellow", "Green", "Blue"]
-cards = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Skip", "Reverse", "+Two", "Wildcard", "+Four"]
+cards = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
 
 #--------------------------------------------------------------------------------------------------------------------------------------------
 
