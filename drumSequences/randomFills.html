@@ -22,7 +22,7 @@
 
 <html>
     <head>
-        <title>Randomly Generated Linear Sequences</title>
+        <title>Randomly Generated Drum Fills</title>
     </head>
 
     <body>
@@ -31,16 +31,17 @@
 
         </div>
 
-        <p class="info">Randomly Generated Linear Drum Sequences
+        <p class="info">Randomly Generated Drum Fills
         <br>Made by SP33D - 2019</p>
     </body>
     
 </html>
 
 <script>
-    //This entire section went through many different revisions, as I decided to change the language I was programming in for the last quarter of development. I spent most of my time creating the font and making it match my source material accurately and making it suitable for reading. I initially developed the program in Python, which may have influenced some of my approaches here. I did most of my debugging and testing within Python, before I realised that it would be easier to rewrite to JavaScript, which gave better device compatiblity with it. Saying that, the rewrite only took about 10-20 minutes.
 
-    var grooves = [["bcad",2],["bead",2],["bcae",2],["beac",2],["bdae",2],["bdac",2],["bcadae",3],["bcaead",3],["beadac",3],["beacad",3],["bdacae",3],["bdaeac",3],["bcadacac",4],["bcadacae",4],["bcadaeae",4],["bcacadae",4],["bcacaead",4],["bcaeacac",4],["bcaeacad",4],["bcadadae",4],["beacadae",4],["beadacad",4],["bdacaead",4],["bdaeacad",4],["bdaeadac",4]];             //Here, because the sequences I was given had different lengths attached to them, I decided to use 2D arrays, with one sub-entry being the sequence itself and the other being the number of beats contained within that. This meant that I could construct a 16-beat bar consistently. The font uses characters a-e, hence the jumble of letters here.
+    //All of this is adapted from the Linear Drum Sequences website.
+
+    var grooves = [["bd",1],["bdfd",2],["bdfdad",3],["bdadfd",3],["bdfgdfdh",3],["bdadadad"],4];             //Here, because the sequences I was given had different lengths attached to them, I decided to use 2D arrays, with one sub-entry being the sequence itself and the other being the number of beats contained within that. This meant that I could construct a 16-beat bar consistently. The font uses characters a-e, hence the jumble of letters here.
 
     function generateRandom() {
         return Math.floor(Math.random() * (grooves.length - 1));        //I use floor to round the 'index number' to something suitable for arrays. Floor in particular was used to ensure that the number it rounds to always stays within the bounds of the array.
@@ -52,7 +53,7 @@
 
     for (var i = 0; i < 8; i++) {
         var failedAttempts = 0;     //Failed Attempts were quite common in my testing. I decided to include this variable to count how many times it had failed to construct a bar of perfectly 16-notes.        
-        while (noteCount != 16) {
+        while (noteCount != 12) {
             if (noteCount + grooves[randomNumber][1] <= 16) {           //Firstly, it needs to check if the number assigned to the sequence will push the note
                 noteCount += grooves[randomNumber][1];                  //Count over 16. If it doesn't, then add it in. Otherwise,
                 finalString += grooves[randomNumber][0];

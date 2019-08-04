@@ -46,7 +46,7 @@
     var randomNumber = generateRandom();
     var finalString = "";
 
-    for (var i = 0; i < 10; i++) {          //This is the loop that generates the 10 lines that appears on the webpage.
+    for (var i = 0; i < 8; i++) {          //This is the loop that generates the 8 lines that appears on the webpage.
         while (noteCount != 16) {           //Usually there would be more maths here but I decided while making the site every bar will be 4 beats long. This means that noteCount will guaranteed become 16. In hindsight, I could have used another for loop, but it was more convenient just to leave it how it was.
 	        noteCount += 4;
 	        finalString += grooves[randomNumber];
