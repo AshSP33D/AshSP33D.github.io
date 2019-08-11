@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<style>
+	body {
+		background-color: black;
+		color: white;
+		-moz-transform: scale(-1, 1);
+		-webkit-transform: scale(-1, 1);
+		transform: scale(-1, 1);
+	}
+
+	.marqueeText {
+		word-wrap: break-word;
+		font-size:72px;
+		padding: 0px 50px 0px 50px;
+		font-family: sans-serif;
+		-moz-transform:translateY(100%);
+		-webkit-transform:translateY(100%);
+		transform:translateY(100%);
+		-moz-animation: marqueeText 60s linear infinite;
+		-webkit-animation: marqueeText 60s linear infinite;
+		animation: marqueeText 60s linear infinite;
+	}
+
+	@-moz-keyframes marqueeText {
+		0% {
+			-moz-transform:translateY(100%);
+		}
+		100% {
+			-moz-transform: translateY(-100%);
+		}
+	}
+
+	@-webkit-keyframes marqueeText {
+		0% {
+			-webkit-transform: translateY(100%);
+		}
+		100% {
+			-webkit-transform: translateY(-100%);
+		}
+	}
+
+	@keyframes marqueeText {
+		0% {
+			-moz-transform: translateY(100%);
+			-webkit-transform: translateY(100%);
+			transform: translateY(100%);
+		}
+
+		100% {
+			-moz-transform: translateY(-100%);
+			-webkit-transform: translateY(-100%);
+			transform: translateY(-100%);
+		}
+	}
+</style>
+
+<html>
+	<head>
+		<title>Test</title>
+	</head>
+	<body>
+		<table><tr>
+		<div>
+			<p class="marqueeText">This is a paragraph that may appear on a teleprompter. This text would be read out by the news anchor at the time, which is very useful for the anchor as it means that they don't have to repeatedly peer down to a sheet of paper below the camera, nor do they have to memorise their lines. This can be very useful for writers to quickly and easily change lines before they are read out before having to issue a reprint of the entire page or story. It also means that the rate of news can be faster depending on the speed of which the anchor can read upcoming words and register them before repeating the content within them as a comprehensive sentence that other people can understand at such a speed.</p>
+		</div></tr>
+		<tr style="position: fixed;padding-bottom: 250px"><div style="position: fixed;padding-bottom: 250px">Hello</div></tr>
+	</table>
+	</body>
+</html>
