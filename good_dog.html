@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
-    <body id="body" style="font-family: 'Arial', arial, sans-serif;">
+    <body id="body" style="font-family: 'Arial', arial, sans-serif;" onload="fullyLoaded()">
 </body>
 </html>
 
 <script>
     var startTime = Date.now();
     document.getElementById("body").innerHTML = "My dog is a " + "good ".repeat(Math.floor(startTime / 1000) - 1569094845) + "dog, yes he is.";
-    console.log("Current Unix Time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing Time: " + (Date.now() - startTime).toString() + "ms");
+    function fullyLoaded() {
+        console.log("Current Unix Time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing Time: " + (Date.now() - startTime).toString() + "ms");
+    }
 </script>
