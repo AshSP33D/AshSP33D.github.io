@@ -9,6 +9,6 @@
     document.getElementById("body").innerHTML = "My dog is a " + "good ".repeat(Math.floor(startTime / 1000) - 1569094845) + "dog, yes he is.";
     var processTime = Date.now();
     function fullyLoaded() {
-        console.log("Current Unix Time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing Time: " + (processTime - startTime).toString() + "ms\nFull Load Time: " + (Date.now() - startTime).toString() + "ms\nDifference: " + (Date.now() - pageLoad).toString());
+        console.log("Current Unix Time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing Time: " + (processTime - startTime).toString() + "ms\nFull Load Time: " + (Date.now() - startTime).toString() + "ms\nDifference: " + (Date.now() - processTime).toString());
     }
 </script>
