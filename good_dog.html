@@ -7,6 +7,5 @@
 <script>
     var startTime = Date.now();
     document.getElementById("body").innerHTML = "My dog is a " + "good ".repeat(Math.floor(startTime / 1000) - 1569094845) + "dog, yes he is.";
-    var endTime = Date.now();
-    console.log("Unix time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing time: " + (endTime - startTime).toString() + "ms");
+    console.log("Current Unix Time: " + Math.floor(startTime / 1000).toString() + "\nGoodness: " + (Math.floor(startTime / 1000) - 1569094845).toString() + "\nProcessing Time: " + (Date.now() - startTime).toString() + "ms");
 </script>
