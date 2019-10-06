@@ -62,84 +62,94 @@
 
 </style>
 <html>
-	<head>			<!--In the source code, there is a <head> tag here, however it seems to move to the very start of the document in the code viewer for the website for some reason.-->
+	<head>
 		<title>Ash's Portfolio</title>
 	</head>
-	<body>
-		<h1 align=center>ASH'S PORTFOLIO</h1>
-		<table style="width: 100%">
-			<tr>
-				<th><button onclick="resetDivs();document.getElementById('drumSequences').className = 'visible';">Random Drum Sequences</button></th>
-				<th><button onclick="resetDivs();document.getElementById('wordPress').className = 'visible';">Fully Custom HTML & CSS in Wordpress</button></th>
-				<th><button onclick="resetDivs();document.getElementById('robots').className = 'visible';">C# Robot AI (Work Experience)</button></th>
-				<th><button onclick="resetDivs();document.getElementById('portfolio').className = 'visible';">Portfolio from scratch (HTML, CSS, JS)</button></th>
-			</tr>
-		</table>
-		<p></p>
-			
-		<div id="drumSequences" class="invisible" style="padding-bottom: 220px">
-				<table>
-					<tr>
-						<th><button onclick="window.location.href = 'drumSequences/randomLinear.html'" class = "subButton">Random Linear Drum Sequences</button></th>
-						<th>This project was tasked to me by my drum teacher. While initially developing it in Python, and writing a HTML file, I decided to switch over to constructing the page from within the browser using JavaScript for user convenience. It makes use of a custom font, results in 10, 16-beat bars and can be printed.</th>
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'drumSequences/randomBasic.html'" class = "subButton">Random Basic Drum Sequences</button></th>
-						<th>Being developed off the other drum sequences project, I simply removed some pieces of code I felt weren't needed any more (as I was creating my own sequences to go into the array) and replaced the sequences to replace with the Basic Rock variety. I decided to reduce the amount of checking the code had to do and the system I used for the arrays. In depth explanations can be found within the HTML files themselves.</th>
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'drumSequences/randomFills.html'" class = "subButton">Random Basic Snare Sequences</button></th>
-						<th>Using the Linear Sequences page as a basis, this website generates random sequences of snare drum notes that can then be expanded by the user to spread across the drum kit. Once again being requested by my teacher, I had to expand upon the font to add in some syntax details which makes the sequences a little more readable.</th>
-					</tr>
-				</table>
-		</div>
+    <body>
+        <h1 align=center>ASH'S PORTFOLIO</h1>
+        <table style="width: 100%">
+            <tr>
+                <th><button onclick="resetDivs();document.getElementById('drumSequences').className = 'visible';">Random Drum Sequences</button></th>
+                <th><button onclick="resetDivs();document.getElementById('wordPress').className = 'visible';">Fully Custom HTML & CSS in Wordpress</button></th>
+                <th><button onclick="resetDivs();document.getElementById('robots').className = 'visible';">C# Robot AI (Work Experience)</button></th>
+                <th><button onclick="resetDivs();document.getElementById('portfolio').className = 'visible';">Portfolio from scratch (HTML, CSS, JS)</button></th>
+                <th><button onclick="resetDivs();document.getElementById('other').className = 'visible';">Other Projects</button></th>
+            </tr>
+        </table>
+        <p></p>
 
-		<div id="wordPress" class="invisible" style="height: 200px">
-				<table>
-					<tr>
-						<th><button onclick="window.location.href = 'http://upperhandgaming.eu/colourchange'" class = "subButton">Go to Site</button></th>
-						<th>I undertook this project myself with the sole intention of being able to host some of my small experiments on a Wordpress site (which I decided against once it became clear that the process was extremely inefficient. I quickly learned that you can only run JS, which is required, on premium Wordpress servers, which meant that I had to build the page on the only premium server I have access to. I felt it was a nice challenge, and could be used for other purposes by other people (for example for hosting a portfolio without having to purchase multiple different addresses). Of course, GitHub is still a better place to do the same function.</th>
-					</tr>
-				</table>
-		</div>
+        <div id="drumSequences" class="invisible" style="padding-bottom: 220px">
+            <table>
+                <tr>
+                    <th><button onclick="window.location.href = 'drumSequences/randomLinear.html'" class="subButton">Random Linear Drum Sequences</button></th>
+                    <th>This project was tasked to me by my drum teacher. While initially developing it in Python, and writing a HTML file, I decided to switch over to constructing the page from within the browser using JavaScript for user convenience. It makes use of a custom font, results in 10, 16-beat bars and can be printed.</th>
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'drumSequences/randomBasic.html'" class="subButton">Random Basic Drum Sequences</button></th>
+                    <th>Being developed off the other drum sequences project, I simply removed some pieces of code I felt weren't needed any more (as I was creating my own sequences to go into the array) and replaced the sequences to replace with the Basic Rock variety. I decided to reduce the amount of checking the code had to do and the system I used for the arrays. In depth explanations can be found within the HTML files themselves.</th>
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'drumSequences/randomFills.html'" class="subButton">Random Basic Snare Sequences</button></th>
+                    <th>Using the Linear Sequences page as a basis, this website generates random sequences of snare drum notes that can then be expanded by the user to spread across the drum kit. Once again being requested by my teacher, I had to expand upon the font to add in some syntax details which makes the sequences a little more readable.</th>
+                </tr>
+            </table>
+        </div>
 
-		<div id="robots" class="invisible" style="padding-bottom: 500px">
-				<table>
-					<tr>
-						During work experience I was tasked with using C# to program robot AI that would participate within a fight. I learned the approaches that each in the development team took throughout the week and eventually applied the knowledge into the creation of a few robots by the end of the week. There was no documentation for the robots, so all understanding of the system was required to stem from the code itself. 
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'robots/AshBot.cs'" class = "subButton">Download AshBot</button></th>
-						<th>This robot eliminates every other robot immediately as their round starts. It functions as the RobotWars project does not check for attacks of negative figures, meaning instead it will add health to a target robot - this was discovered by one of the developers. I then considered the use of integer underflows to break the system (at the time unknowing fully what the integer would be set to) to either set the target's health to an incredible negative figure or to zero. This means that it doesn't get penalised for the high amount of damage it does. It has a win rate over 10,000 tests of 100% in the unfair mode and 76% in the fair mode.</th>
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'robots/SmartRobot.cs'" class = "subButton">Download SmartRobot</button></th>
-						<th>This is another bot I developed similarly but with more complex AI. Despite being more complex than any of the other robots it was put up against (excluding my other bot) it repeatedly came out in fourth and fifth places. It mimics the behaviour of other example robots according to certain variables such as where it is in the leaderboard, how much health it has left etc. It has a measly 3.9% win rate, despite being fairly complex.</th>
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'robots/SprayRobot.cs'" class = "subButton">Download SprayRobot</button></th>
-						<th>This robot hit all available robots equally according to how many are alive at the time. If it has attacks left, it disregards them (thus making it somewhat inefficient) and finishes it's round. Due to this, and the strategy it undertakes, it gets a 0% win rate in tests.</th>
-					</tr>
-					<tr>
-						<th><button onclick="window.location.href = 'robots/ZRobot.cs'" class = "subButton">Download ZRobot</button></th>
-						<th>This was the first robot made. Originally, it adapted code from one of the existing bots and targetted competitors by alphabetical order. This was somewhat effective, giving it a consecutive 2nd place. However, it was configured to mainly work only with the example bots, and required the most powerful robot (called Bully Robot) to be first in alphabetical order, meaning it became inefficient when placing it against other bots. Despite this, later in the week, a chance was given to improve the bot. I improved the logic of the bot but this lowered the efficiency of the bot. The developed version can be seen in the download. It still focusses on prior knowledge of the names of the robots however.</th>
-					</tr>
-				</table>
-		</div>
+        <div id="wordPress" class="invisible" style="height: 200px">
+            <table>
+                <tr>
+                    <th><button onclick="window.location.href = 'http://upperhandgaming.eu/colourchange'" class="subButton">Go to Site</button></th>
+                    <th>I undertook this project myself with the sole intention of being able to host some of my small experiments on a Wordpress site (which I decided against once it became clear that the process was extremely inefficient. I quickly learned that you can only run JS, which is required, on premium Wordpress servers, which meant that I had to build the page on the only premium server I have access to. I felt it was a nice challenge, and could be used for other purposes by other people (for example for hosting a portfolio without having to purchase multiple different addresses). Of course, GitHub is still a better place to do the same function.</th>
+                </tr>
+            </table>
+        </div>
 
-		<div id="portfolio" class="invisible" style="height: 200px">
-				<table>
-					<tr>
-						<th><button onclick="window.location.href = 'https://github.com/AshSP33D/AshSP33D.github.io'" class = "subButton">View the repo</button></th>
-						<th>I always choose to go for the harder option as long as it's more customisable. This was one of the reasons behind why I chose to program my portfolio from scratch. I felt my knowledge in HTML, CSS and JS was enough to create a useful and acceptable website, with more customisability being allowed than template websites such as Wordpress. Most of the code I initially used to create the barebones of the website came from an earlier project I did - a web-based launcher for retro games. Eventually most of the code was rewritten to fit better to this purpose but it allowed me to focus more on expandability and further customisability if needed. As this website is somewhat in use by other people (as a result of the drum sequences), I decided to have that as the first value in the table - immediately they know that they're on the right page.</th>
-					</tr>
-				</table>
-		</div>
+        <div id="robots" class="invisible" style="padding-bottom: 500px">
+            <table>
+                <tr>
+                    During work experience I was tasked with using C# to program robot AI that would participate within a fight. I learned the approaches that each in the development team took throughout the week and eventually applied the knowledge into the creation of a few robots by the end of the week. There was no documentation for the robots, so all understanding of the system was required to stem from the code itself.
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'robots/AshBot.cs'" class="subButton">Download AshBot</button></th>
+                    <th>This robot eliminates every other robot immediately as their round starts. It functions as the RobotWars project does not check for attacks of negative figures, meaning instead it will add health to a target robot - this was discovered by one of the developers. I then considered the use of integer underflows to break the system (at the time unknowing fully what the integer would be set to) to either set the target's health to an incredible negative figure or to zero. This means that it doesn't get penalised for the high amount of damage it does. It has a win rate over 10,000 tests of 100% in the unfair mode and 76% in the fair mode.</th>
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'robots/SmartRobot.cs'" class="subButton">Download SmartRobot</button></th>
+                    <th>This is another bot I developed similarly but with more complex AI. Despite being more complex than any of the other robots it was put up against (excluding my other bot) it repeatedly came out in fourth and fifth places. It mimics the behaviour of other example robots according to certain variables such as where it is in the leaderboard, how much health it has left etc. It has a measly 3.9% win rate, despite being fairly complex.</th>
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'robots/SprayRobot.cs'" class="subButton">Download SprayRobot</button></th>
+                    <th>This robot hit all available robots equally according to how many are alive at the time. If it has attacks left, it disregards them (thus making it somewhat inefficient) and finishes it's round. Due to this, and the strategy it undertakes, it gets a 0% win rate in tests.</th>
+                </tr>
+                <tr>
+                    <th><button onclick="window.location.href = 'robots/ZRobot.cs'" class="subButton">Download ZRobot</button></th>
+                    <th>This was the first robot made. Originally, it adapted code from one of the existing bots and targetted competitors by alphabetical order. This was somewhat effective, giving it a consecutive 2nd place. However, it was configured to mainly work only with the example bots, and required the most powerful robot (called Bully Robot) to be first in alphabetical order, meaning it became inefficient when placing it against other bots. Despite this, later in the week, a chance was given to improve the bot. I improved the logic of the bot but this lowered the efficiency of the bot. The developed version can be seen in the download. It still focusses on prior knowledge of the names of the robots however.</th>
+                </tr>
+            </table>
+        </div>
 
-		<div style="bottom: 0px;z-index: -2;">
-			SP33D - 2019 | <a href="https://www.twitter.com/Ash_SP33D">Twitter</a> | <a href="https://github.com/AshSP33D">GitHub</a>
-		</div>
-	</body>
+        <div id="portfolio" class="invisible" style="height: 200px">
+            <table>
+                <tr>
+                    <th><button onclick="window.location.href = 'https://github.com/AshSP33D/AshSP33D.github.io'" class="subButton">View the repo</button></th>
+                    <th>I always choose to go for the harder option as long as it's more customisable. This was one of the reasons behind why I chose to program my portfolio from scratch. I felt my knowledge in HTML, CSS and JS was enough to create a useful and acceptable website, with more customisability being allowed than template websites such as Wordpress. Most of the code I initially used to create the barebones of the website came from an earlier project I did - a web-based launcher for retro games. Eventually most of the code was rewritten to fit better to this purpose but it allowed me to focus more on expandability and further customisability if needed. As this website is somewhat in use by other people (as a result of the drum sequences), I decided to have that as the first value in the table - immediately they know that they're on the right page.</th>
+                </tr>
+            </table>
+        </div>
+
+        <div id="other" class="invisible" style="height: 200px">
+            <table>
+                <tr>
+                    <th><button onclick="window.location.href = 'other/good_dog.html'" class="subButton">Good Dog</button></th>
+                    <th>This website plays upon an inside joke between me and one of my school friends. It was originally a Python script outputting a HTML file and opening it automatically. I decided to port it over to JS however when I felt that the file became unreasonably large (6MB after 2 weeks) with an increasingly long loading time. This meant that I could incorporate all the code into it's own site however, allowing me to host it online. The page has a pre-defined start position in Unix time and calculates how many seconds has passed since then - this is represented by the word 'good' in the website. It also logs a number of different details in the console, such as the current Unix time, the 'goodness' and the load time of the website, just for my benefit really.</th>
+                </tr>
+            </table>
+        </div>
+
+        <div style="bottom: 0px;z-index: -2;">
+            SP33D - 2019 | <a href="https://www.twitter.com/Ash_SP33D">Twitter</a> | <a href="https://github.com/AshSP33D">GitHub</a>
+        </div>
+    </body>
 </html>
 
 <script>
@@ -147,6 +157,7 @@
 		document.getElementById('drumSequences').className = "invisible";
 		document.getElementById('wordPress').className = "invisible";
 		document.getElementById('robots').className = "invisible";
-		document.getElementById('portfolio').className = "invisible";
+        document.getElementById('portfolio').className = "invisible";
+        document.getElementById('other').className = "invisible";
 	}
 </script>
