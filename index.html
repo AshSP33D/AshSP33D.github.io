@@ -65,7 +65,7 @@
 	<head>
 		<title>Ash's Portfolio</title>
 	</head>
-    <body>
+    <body onload="pi()">
         <h1 align=center>ASH'S PORTFOLIO</h1>
         <table style="width: 100%">
             <tr>
@@ -132,7 +132,7 @@
             <table>
                 <tr>
                     <th><button onclick="window.location.href = 'https://github.com/AshSP33D/AshSP33D.github.io'" class="subButton">View the repo</button></th>
-                    <th>I always choose to go for the harder option as long as it's more customisable. This was one of the reasons behind why I chose to program my portfolio from scratch. I felt my knowledge in HTML, CSS and JS was enough to create a useful and acceptable website, with more customisability being allowed than template websites such as Wordpress. Most of the code I initially used to create the barebones of the website came from an earlier project I did - a web-based launcher for retro games. Eventually most of the code was rewritten to fit better to this purpose but it allowed me to focus more on expandability and further customisability if needed. As this website is somewhat in use by other people (as a result of the drum sequences), I decided to have that as the first value in the table - immediately they know that they're on the right page.</th>
+                    <th>I always choose to go for the harder option as long as it's more customisable. This was one of the reasons behind why I chose to program my portfolio from scratch. I felt my knowledge in HTML, CSS and JS was enough to create a useful and acceptable website, with more customisability being allowed than template websites such as Wordpress. Most of the code I initially used to create the barebones of the website came from an earlier project I did - a web-based launcher for retro games. Eventually most of the code was rewritten to fit better to this purpose but it allowed me to focus more on expandability and further customisability if needed. As this website is somewhat in use by other people (as a result of the drum sequences), I decided to have that as the first value in the table - immediately they know that they're on the right page. Included in the website is also a Pi calculator running in the background as soon as you open the website which you can find the current value to in console. Type 'fastPi()' into console to disable functionality of the website and turn your computer into a Pi-calculating powerhouse.</th>
                 </tr>
             </table>
         </div>
@@ -153,11 +153,24 @@
 </html>
 
 <script>
+    var piWorker;
+
 	function resetDivs() {
 		document.getElementById('drumSequences').className = "invisible";
 		document.getElementById('wordPress').className = "invisible";
 		document.getElementById('robots').className = "invisible";
         document.getElementById('portfolio').className = "invisible";
         document.getElementById('other').className = "invisible";
-	}
+    }
+
+    function pi() {
+        if (typeof (piWorker) == "undefined") {
+            piWorker = new Worker("pi.js");
+        }
+    }
+
+    function fastPi() {
+        piWorker.terminate()
+        piWorker = new Worker("fastPi.js");
+    }
 </script>
