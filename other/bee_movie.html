@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<script>
+    function scriptLoaded() {
+        var script = document.getElementById("script").contentWindow.document;
+        console.log(script);
+    }
+</script>
+
+<html>
+<body id="body" style="font-family: 'Arial', arial, sans-serif;">
+    <iframe id="script" src="script.txt" style="display: none;" onload="scriptLoaded()" />
+</body>
+</html>
