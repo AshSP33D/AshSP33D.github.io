@@ -20,8 +20,7 @@
         height: 30px;
         margin: 0px -8px 0px -8px;
         text-align: center;
-        animation: bar 11s ease;
-        transition: 1s ease;
+        animation: bar 17s ease;
         font-family: LemonMilk;
         color: white;
         z-index: -1;
@@ -32,8 +31,7 @@
     }
 
     .barInner {
-        transition: 1s ease;
-        animation: barContent 10s ease;
+        animation: barContent 20s ease;
     }
 
     @keyframes bar {
@@ -59,32 +57,36 @@
             transform: translateY(0px);
         }
 
-        15% {
+        10% {
             transform: translateY(0px);
         }
 
-        20% {
+        13% {
             transform: translateY(-33px);
         }
 
-        35% {
+        23% {
             transform: translateY(-33px);
         }
 
-        40% {
-            transform: translateY(-57px);
+        26% {
+            transform: translateY(-56px);
         }
 
-        55% {
-            transform: translateY(-57px);
+        36% {
+            transform: translateY(-56px);
         }
 
-        60% {
+        39% {
             transform: translateY(-84px);
         }
 
-        90% {
+        69% {
             transform: translateY(-84px);
+        }
+
+        78% {
+            transform: translateY(0px);
         }
     }
 
@@ -108,7 +110,7 @@
     }
 
     .venniLogos {
-        filter: invert(34%) sepia(52%) saturate(6841%) hue-rotate(219deg) brightness(103%) contrast(101%);
+        filter: invert(85%) sepia(84%) saturate(425%) hue-rotate(142deg) brightness(107%) contrast(100%);
     }
 
     .preview {
@@ -134,7 +136,7 @@
                 <div class="streamers">
                     | <span style="color: #11cc11">shrunk | <img src="twitch.svg" class="twitchLogo shrunkLogos" /> Shrunk8 | <img src="twitter.svg" class="twitchLogo shrunkLogos" /> @sshrunkk</span> |
                     <span style="color: #ffff00">oblivion | <img src="twitch.svg" class="twitchLogo oblivionLogos" /> SirOblivion | <img src="twitter.svg" class="twitchLogo oblivionLogos" />  @SirOblivion</span> |
-                    <span style="color: #2266ff">Venni | <img src="twitch.svg" class="twitchLogo venniLogos" /> venni012 | <img src="twitter.svg" class="twitchLogo venniLogos" /> @venniparty</span> |
+                    <span style="color: #80ffff">Venni | <img src="twitch.svg" class="twitchLogo venniLogos" /> venni012 | <img src="twitter.svg" class="twitchLogo venniLogos" /> @venniparty</span> |
                 </div>
             </marquee>
         </div>
@@ -196,19 +198,17 @@
 
     updatePreview();
 
-    barContent.style.animation = "barContent 10s ease";
+    barContent.style.animation = "barContent 20s ease";
 
     bar.addEventListener("animationend", function () {
+        bar.style.animation = "none";
+        barContent.style.animation = "none";
+        bar.style.transform = "translateY(30px)";
         setTimeout(function () {
-            bar.style.animation = "none";
-            barContent.style.animation = "none";
-            bar.style.transform = "translateY(30px)";
-            setTimeout(function () {
-                bar.style.animation = "";
-                barContent.style.animation = "";
-                bar.style.transform = "";
-            }, waitingTime * 60000);
-        }, 900);
+            bar.style.animation = "";
+            barContent.style.animation = "";
+            bar.style.transform = "";
+        }, waitingTime * 60000);
     }, false);
 
     function updatePreview() {
