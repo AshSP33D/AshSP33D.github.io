@@ -143,7 +143,7 @@
         <span style="font-size:30px;font-weight:bold;">URL MAKER</span>
         <br /><b style="color: red;">REQUIRED</b>
         <br />Channel Name: <input type="text" onchange="updatePreview()" id="channelName"/>
-        <br />Colour: <input type="color" onchange="hexArea.value = this.value.replace('#','');updatePreview()" id="colorPicker"/> Hex: #<input type="text" style="width:80px" onchange="colorPicker.value = '#' + this.value;updatePreview()" id="hexArea"/>
+        <br />Colour: <input type="color" onchange="hexArea.value = this.value.replace('#','');updatePreview()" id="colorPicker"/> Hex: #<input type="text" style="width:80px" onchange="colorPicker.value = '#' + this.value;updatePreview()" id="hexArea" value="#fff"/>
         <br />Time between popups: <input type="number" style="width:40px;" onchange="waitingTime = parseFloat(this.value)" value="0.05" id="waitDuration"/> minutes
         <br /><button onclick="createURL()">Create URL</button>
         <br /><b><u id="finalURL"></u></b>
@@ -167,15 +167,21 @@
 
     var args = new URLSearchParams(window.location.search);
 
-    barWatchingText.innerHTML = "You're watching " + args.get("name") + "!";
-    barWatchingText.style.color = "#" + args.get("color");
+    if (args.get("name") != null) {
+        barWatchingText.innerHTML = "You're watching " + args.get("name") + "!";
+        channelName.value = args.get("name");
+    }
 
-    waitingTime = parseFloat(args.get("time"));
-    waitDuration.value = args.get("time");
+    if (args.get("color") != null) {
+        hexArea.value = args.get("color");
+        colorPicker.value = "#" + args.get("color");
+        barWatchingText.style.color = "#" + args.get("color");
+    }
 
-    channelName.value = args.get("name");
-    hexArea.value = args.get("color");
-    colorPicker.value = "#" + args.get("color");
+    if (args.get("time") != null) {
+        waitingTime = parseFloat(args.get("time"));
+        waitDuration.value = args.get("time");
+    }
 
     updatePreview();
 
