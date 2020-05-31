@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+
+<style>
+
+    @font-face
+    {
+        font-family: LemonMilk;
+        src: url(LemonMilk.otf) format('opentype');
+    }
+
+    input {
+        height: 16px;
+    }
+
+    .barDiv {
+        background-color: #000;
+        max-height: 30px;
+        height: 30px;
+        margin: 0px -8px 0px -8px;
+        text-align: center;
+        animation: bar 11s ease;
+        transition: 1s ease;
+        font-family: LemonMilk;
+        color: white;
+        z-index: -1;
+    }
+
+    .streamers {
+        padding-top: 3px;
+    }
+
+    .barInner {
+        transition: 1s ease;
+        animation: barContent 10s ease;
+    }
+
+    @keyframes bar {
+        0% {
+            transform: translateY(30px);
+        }
+        
+        5% {
+            transform: translateY(0px);
+        }
+
+        95% {
+            transform: translateY(0px);
+        }
+
+        100% {
+            transform: translateY(30px);
+        }
+    }
+
+    @keyframes barContent {
+        0% {
+            transform: translateY(0px);
+        }
+
+        15% {
+            transform: translateY(0px);
+        }
+
+        20% {
+            transform: translateY(-33px);
+        }
+
+        35% {
+            transform: translateY(-33px);
+        }
+
+        40% {
+            transform: translateY(-57px);
+        }
+
+        55% {
+            transform: translateY(-57px);
+        }
+
+        60% {
+            transform: translateY(-85px);
+        }
+
+        90% {
+            transform: translateY(-85px);
+        }
+    }
+
+    .twitchLogo {
+        width: 15px;
+        height: 15px;
+        margin-top: 5px;
+    }
+
+    .uhLogo {
+        width: 30px;
+        height: 30px;
+    }
+
+    .shrunkLogos {
+        filter: invert(57%) sepia(31%) saturate(5801%) hue-rotate(85deg) brightness(108%) contrast(95%);
+    }
+
+    .oblivionLogos {
+        filter: invert(98%) sepia(7%) saturate(6497%) hue-rotate(1deg) brightness(100%) contrast(115%);
+    }
+
+    .venniLogos {
+        filter: invert(34%) sepia(52%) saturate(6841%) hue-rotate(219deg) brightness(103%) contrast(101%);
+    }
+
+    .preview {
+        font-family: LemonMilk;
+        position: fixed;
+        margin-left: 50%;
+        padding: 7px;
+        background-color: #000;
+    }
+
+</style>
+
+<html>
+<head>
+    <title>UHG Bar</title>
+</head>
+<body>
+    <div class="barDiv" id="barDiv">
+        <div class="barInner" id="barInner">
+            <img src="uhg.svg" class="uhLogo" /><div style="padding-top: 2px;text-align:center;" id="barWatchingText">You're watching Shrunk8!</div>
+            <div>Upper Hand Gaming Network</div>
+            <marquee direction="right" scrollamount="0" style="margin-left: 25%;">
+                <div class="streamers">
+                    | <span style="color: #11cc11">shrunk | <img src="twitch.svg" class="twitchLogo shrunkLogos" /> Shrunk8 | <img src="twitter.svg" class="twitchLogo shrunkLogos" /> @sshrunkk</span> |
+                    <span style="color: #ffff00">oblivion | <img src="twitch.svg" class="twitchLogo oblivionLogos" /> SirOblivion | <img src="twitter.svg" class="twitchLogo oblivionLogos" />  @SirOblivion</span> |
+                    <span style="color: #2266ff">Venni | <img src="twitch.svg" class="twitchLogo venniLogos" /> venni012 | <img src="twitter.svg" class="twitchLogo venniLogos" /> @venniparty</span> |
+                </div>
+            </marquee>
+        </div>
+    </div>
+
+    <div style="margin: 0px -8px 0px -8px;padding:20px 8px 0px 8px;background-color:#fff;display:block;position: fixed;width:100%;height:100%;font-family:'Segoe UI'">
+        <div class="preview"><span id="previewText">You're Watching [Name]</span><span style="color:red;font-size:8px;position:fixed;transform: translateY(300%);overflow: hidden">Preview</span></div>
+        <span style="font-size:30px;font-weight:bold;">URL MAKER</span>
+        <br /><b style="color: red;">REQUIRED</b>
+        <br />Channel Name: <input type="text" onchange="updatePreview()" id="channelName"/>
+        <br />Colour: <input type="color" onchange="hexArea.value = this.value.replace('#','');updatePreview()" id="colorPicker"/> Hex: #<input type="text" style="width:80px" onchange="colorPicker.value = '#' + this.value;updatePreview()" id="hexArea"/>
+        <br />Time between popups: <input type="number" style="width:40px;" onchange="waitingTime = parseFloat(this.value)" value="0.05" id="waitDuration"/> minutes
+        <br /><button onclick="createURL()">Create URL</button>
+        <br /><b><u id="finalURL"></u></b>
+    </div>
+</body>
+</html>
+
+<script>
+    var bar = document.getElementById("barDiv");
+    var barContent = document.getElementById("barInner");
+    var waitingTime = 0.05;
+
+    var colorPicker = document.getElementById("colorPicker");
+    var hexArea = document.getElementById("hexArea");
+    var channelName = document.getElementById("channelName");
+    var previewText = document.getElementById("previewText");
+    var barWatchingText = document.getElementById("barWatchingText");
+    var waitDuration = document.getElementById("waitDuration");
+
+    var finalURL = document.getElementById("finalURL");
+
+    var args = new URLSearchParams(window.location.search);
+
+    barWatchingText.innerHTML = "You're watching " + args.get("name") + "!";
+    barWatchingText.style.color = "#" + args.get("color");
+
+    waitingTime = parseFloat(args.get("time"));
+    waitDuration.value = args.get("time");
+
+    channelName.value = args.get("name");
+    hexArea.value = args.get("color");
+    colorPicker.value = "#" + args.get("color");
+
+    updatePreview();
+
+    barContent.style.animation = "barContent 10s ease";
+
+    bar.addEventListener("animationend", function () {
+        setTimeout(function () {
+            bar.style.animation = "none";
+            barContent.style.animation = "none";
+            bar.style.transform = "translateY(30px)";
+            setTimeout(function () {
+                bar.style.animation = "";
+                barContent.style.animation = "";
+                bar.style.transform = "";
+            }, waitingTime * 60000);
+        }, 900);
+    }, false);
+
+    function updatePreview() {
+        previewText.innerHTML = "You're watching " + channelName.value + "!";
+        previewText.style.color = "#" + hexArea.value;
+    }
+
+    function createURL() {
+        finalURL.innerHTML = window.location.href.replace(window.location.search, "") + "?name=" + channelName.value + "&color=" + hexArea.value + "&time=" + waitingTime.toString();
+    }
+</script>
