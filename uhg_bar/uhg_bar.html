@@ -120,7 +120,7 @@
         <br /><b style="color: red;">REQUIRED</b>
         <br />Channel Name: <input type="text" onchange="updatePreview()" id="channelName"/>
         <br />Colour: <input type="color" onchange="hexArea.value = this.value.replace('#','');updatePreview()" id="colorPicker"/> Hex: #<input type="text" style="width:80px" onchange="colorPicker.value = '#' + this.value;updatePreview()" id="hexArea" value="ffffff"/>
-        <br />Time between popups: <input type="number" style="width:40px;" onchange="waitingTime = parseFloat(this.value)" value="0.05" id="waitDuration"/> minutes
+        <br />Time between popups: <input type="number" style="width:40px;" onchange="waitingTime = parseFloat(this.value)" value="0" id="waitDuration"/> minutes
         <br /><button onclick="createURL()">Create URL</button>
         <br /><b><u id="finalURL"></u></b>
 
