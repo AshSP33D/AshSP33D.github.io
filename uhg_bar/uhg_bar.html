@@ -10,6 +10,12 @@
         src: url(LemonMilk.otf) format('opentype');
     }
 
+    @font-face
+    {
+        font-family: Icons;
+        src: url(icons.ttf);
+    }
+
     input {
         height: 16px;
     }
@@ -27,11 +33,12 @@
     }
 
     .streamers {
-        padding-top: 3px;
+        padding-top: 5px;
     }
 
     .barInner {
         animation: barContent 20s ease;
+        padding-top: 5px;
     }
 
     @keyframes bar {
@@ -62,29 +69,6 @@
         100% {color: #ff00ff;} 
     }
 
-    .twitchLogo {
-        width: 15px;
-        height: 15px;
-        margin-top: 5px;
-    }
-
-    .uhLogo {
-        width: 30px;
-        height: 30px;
-    }
-
-    .shrunkLogos {
-        filter: invert(57%) sepia(31%) saturate(5801%) hue-rotate(85deg) brightness(108%) contrast(95%);
-    }
-
-    .oblivionLogos {
-        filter: invert(98%) sepia(7%) saturate(6497%) hue-rotate(1deg) brightness(100%) contrast(115%);
-    }
-
-    .venniLogos {
-        filter: invert(85%) sepia(84%) saturate(425%) hue-rotate(142deg) brightness(107%) contrast(100%);
-    }
-
     .preview {
         font-family: LemonMilk;
         position: fixed;
@@ -102,13 +86,13 @@
 <body>
     <div class="barDiv" id="barDiv">
         <div class="barInner" id="barInner">
-            <img src="uhg.svg" class="uhLogo" /><div style="padding-top: 2px;text-align:center;" id="barWatchingText">You're watching [name]</div>
+            <span style="font-family: Icons;font-size:20px;">u</span><div style="padding-top: 8px;text-align:center;" id="barWatchingText">You're watching [name]</div>
             <div>Upper Hand Gaming Network</div>
             <marquee direction="right" scrollamount="0" style="margin-left: 25%;">
                 <div class="streamers">
-                    | <span style="color: #11cc11">shrunk | <img src="twitch.svg" class="twitchLogo shrunkLogos" /> Shrunk8 | <img src="twitter.svg" class="twitchLogo shrunkLogos" /> @sshrunkk</span> |
-                    <span style="color: #ffff00">oblivion | <img src="twitch.svg" class="twitchLogo oblivionLogos" /> SirOblivion | <img src="twitter.svg" class="twitchLogo oblivionLogos" />  @SirOblivion</span> |
-                    <span style="color: #80ffff">Venni | <img src="twitch.svg" class="twitchLogo venniLogos" /> venni012 | <img src="twitter.svg" class="twitchLogo venniLogos" /> @venniparty</span> |
+                    | <span style="color: #11cc11">shrunk | <span style="font-family: Icons">T</span> Shrunk8 | <span style="font-family: Icons">t</span> @sshrunkk</span> |
+                    <span style="color: #ffff00">oblivion | <span style="font-family: Icons">T</span> SirOblivion | <span style="font-family: Icons">t</span>  @SirOblivion</span> |
+                    <span style="color: #00ffff">Venni | <span style="font-family: Icons">T</span> venni012 | <span style="font-family: Icons">t</span> @venniparty</span> |
                 </div>
             </marquee>
         </div>
