@@ -129,6 +129,7 @@
     var waitDuration = document.getElementById("waitDuration");
 
     var finalURL = document.getElementById("finalURL");
+    var timesRun = 0;
 
     var args = new URLSearchParams(window.location.search);
 
@@ -166,7 +167,14 @@
         bar.style.animation = "none";
         barContent.style.animation = "none";
         bar.style.transform = "translateY(30px)";
+        timesRun += 1;
         setTimeout(function () {
+
+            if (timesRun == (Math.round(60 / waitingTime)))         //At the minute this should be set to refresh almost every hour.
+            {
+                location.reload(true);      //Auto refresh (just in case I decide to push any updates while someone's stream is running. Shouldn't pose too much of an issue.)
+            }
+
             bar.style.animation = "";
             barContent.style.animation = "";
             bar.style.transform = "";
