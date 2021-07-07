@@ -25,12 +25,15 @@ input {
 }
 
 .streamers {
-    padding-top: 5px;
+    height:30px;
+    max-height:30px;
 }
 
 .barInner {
-    animation: barContent 20s ease;
-    padding-top: 5px;
+    /*animation: barContent 20s ease;*/
+    transition-timing-function: ease;
+    transition-duration: 0.7s;
+    padding-top: 4px;
 }
 
 @keyframes bar {
@@ -51,7 +54,7 @@ input {
     }
 }
 
-@keyframes barContent {
+@keyframes barContentBackup {
     0% {
         transform: translateY(0px);
     }
@@ -82,6 +85,44 @@ input {
 
     69% {
         transform: translateY(-84px);
+    }
+
+    78% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes barContent {
+    0% {
+        transform: translateY(0px);
+    }
+
+    10% {
+        transform: translateY(0px);
+    }
+
+    13% {
+        transform: translateY(-33px);
+    }
+
+    23% {
+        transform: translateY(-33px);
+    }
+
+    26% {
+        transform: translateY(-66px);
+    }
+
+    36% {
+        transform: translateY(-66px);
+    }
+
+    39% {
+        transform: translateY(-99px);
+    }
+
+    69% {
+        transform: translateY(-99px);
     }
 
     78% {
